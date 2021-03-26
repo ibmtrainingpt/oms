@@ -27,8 +27,8 @@ public class OrderService {
 		orderRepository.save(order);
 	}
 
-	public void deleteOrder(int orderId) {
-		System.out.println("Order deleted");
+	public void deleteOrder(String orderId) {
+		orderRepository.deleteById(orderId);
 	}
 
 	public Optional<Order> getOrder(String orderId) {

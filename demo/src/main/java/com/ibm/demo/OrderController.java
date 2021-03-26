@@ -57,14 +57,15 @@ public class OrderController {
 	}
 	
 	@PutMapping("/order/{id}")
-	void updateOrder(@RequestBody @Valid Order order, BindingResult bindingResult, @PathVariable("id")int orderId) {
+	void updateOrder(@RequestBody @Valid Order order, BindingResult bindingResult, @PathVariable("id")String orderId) {
 		validateModel(bindingResult);
 		System.out.println(orderId);
+		order.setId(orderId);
 		orderService.updateOrder(order);
 	}
 	
 	@DeleteMapping("/order/{id}")
-	void deleteOrder(@RequestBody @Valid Order order, BindingResult bindingResult, @PathVariable("id")int orderId, HttpRequest httpRequest) {
+	void deleteOrder(@RequestBody @Valid Order order, BindingResult bindingResult, @PathVariable("id")String orderId, HttpRequest httpRequest) {
 		System.out.println(orderId);
 		orderService.deleteOrder(orderId);
 	}
