@@ -65,7 +65,7 @@ public class OrderController {
 	}
 	
 	@DeleteMapping("/order/{id}")
-	void deleteOrder(@RequestBody @Valid Order order, BindingResult bindingResult, @PathVariable("id")String orderId, HttpRequest httpRequest) {
+	void deleteOrder(@PathVariable("id")String orderId) {
 		System.out.println(orderId);
 		orderService.deleteOrder(orderId);
 	}
