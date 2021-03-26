@@ -44,6 +44,7 @@ public class OrderController {
 		return orderService.getOrders();
 	}
 
+	@GetMapping("/order/{id}")
 	Order getOrder(@PathVariable("id") int orderId) {
 		return orderService.getOrder(orderId);
 	}

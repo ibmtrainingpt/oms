@@ -2,9 +2,11 @@ package com.ibm.demo.entity;
 
 import javax.validation.constraints.NotNull;
 
+import org.springframework.data.annotation.Id;
+
 public class Order {
-	@NotNull
-	private int id;
+	@Id
+	private String id;
 	@NotNull
 	private String item;
 	@NotNull
@@ -19,6 +21,15 @@ public class Order {
 			throw new IllegalArgumentException("Price cannot be negative.");
 		}
 		this.price = price;
+	}
+	
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getItem() {
